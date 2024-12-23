@@ -1,0 +1,29 @@
+.header {
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+    background-color: #1f5fa4;
+    border-radius: 5px;
+}
+
+.list {
+    display: flex;
+    gap: 1rem;
+    list-style-type: none;
+}
+
+.list a {
+    text-decoration: none;
+    color: var(--color-primary-400);
+    margin: 0 3rem;
+}
+
+.list a:hover,
+.list a.active {
+    text-decoration: underline;
+}
+
+.header form {
+    padding-top: 0.7rem;
+}
