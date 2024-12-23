@@ -34,7 +34,9 @@ const EventDetailPage = () => {
 export default EventDetailPage;
 
 async function loadEvent(id) {
-    const response = await fetch('http://localhost:8080/events/' + id);
+    const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/events/${id}`
+    );
 
     if (!response.ok) {
         throw json(
@@ -50,7 +52,7 @@ async function loadEvent(id) {
 }
 
 async function loadEvents() {
-    const response = await fetch('http://localhost:8080/events');
+    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/events`);
     if (!response.ok) {
         // return { isError: true, message: 'Could not fetch events. '};
         // throw new Response(JSON.stringify({ message: 'Could not fetch events'}), { status: 500,});
@@ -73,9 +75,12 @@ export async function loader({ params }) {
 export async function action({ request, params }) {
     const eventId = params.eventId;
     console.log('event Id: ', eventId);
-    const response = await fetch('http://localhost:8080/events/' + eventId, {
-        method: request.method,
-    });
+    const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/events/${eventId}`,
+        {
+            method: request.method,
+        }
+    );
 
     console.log('response: ', response);
 

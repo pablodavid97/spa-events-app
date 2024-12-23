@@ -16,7 +16,7 @@ function EventsPage() {
 }
 
 async function loadEvents() {
-    const response = await fetch('http://localhost:8080/events');
+    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/events`);
     if (!response.ok) {
         // return { isError: true, message: 'Could not fetch events. '};
         // throw new Response(JSON.stringify({ message: 'Could not fetch events'}), { status: 500,});
